@@ -6,13 +6,15 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
-import Base from './components/Base'
+import ListPosts from './components/ListPosts'
 
 const App = () => {
   return (
       <div className="app">
-        <Route exact path="/" component={Base}/>
-        <Route exact path="/:id" component={Base}/>
+        <Route exact path="/" component={ListPosts}/>
+        {/*<Route exact path="/post/create" component={ListPosts}/>*/}
+        <Route exact path="/:category/" component={ListPosts}/>
+        {/*<Route exact path="/:category/:id" component={ListPosts}/>*/}
       </div>
   )
 };

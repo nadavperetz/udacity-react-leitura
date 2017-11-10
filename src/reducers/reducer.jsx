@@ -3,16 +3,21 @@ import {combineReducers} from 'redux';
 // import {GET_COMMENT} from '../actions/comments'
 // import {GET_POST} from '../actions/posts'
 import {GOT_CATEGORIES} from '../actions/categories'
+import {AFTER_VOTE, GOT_POSTS} from "../actions/posts";
 
 const initialPostState = {
-  id: null,
-  timestamp: Date.now(),
-  title: null,
-  body: null,
-  author: null,
-  category: null,
-  voteScore: 0,
-  deleted: false
+  posts: [],
+  post: {
+    id: null,
+    timestamp: Date.now(),
+    title: null,
+    body: null,
+    author: null,
+    category: null,
+    voteScore: 0,
+    commentCount: 0,
+    deleted: false
+  }
 };
 
 const initialCommentState = {
@@ -36,6 +41,20 @@ const defaultCategories = {
 
 function PostStore(state = initialPostState, action) {
   switch (action.type) {
+    case GOT_POSTS:
+      return {
+        ...state,
+        posts: action.posts
+      };
+    case AFTER_VOTE: {
+      let posts = state.posts.map(a => ({...a}));
+      let idx = posts.findIndex((post) => post.id === action.post.id)
+      posts[idx] = action.post
+      return {
+        ...state,
+        posts: posts
+      };
+    }
     default:
       return state;
   }
@@ -52,6 +71,7 @@ function CategoryStore(state = defaultCategories, action) {
   switch (action.type) {
     case GOT_CATEGORIES:
       return {
+        ...state,
         categories: action.categories
       };
     default:
