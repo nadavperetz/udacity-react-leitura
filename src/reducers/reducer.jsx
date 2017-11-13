@@ -3,11 +3,11 @@ import {combineReducers} from 'redux';
 // import {GET_COMMENT} from '../actions/comments'
 // import {GET_POST} from '../actions/posts'
 import {GOT_CATEGORIES} from '../actions/categories'
-import {AFTER_VOTE, GOT_POSTS} from "../actions/posts";
+import {AFTER_VOTE, GOT_POST_BY_ID, GOT_POSTS} from "../actions/posts";
 
 const initialPostState = {
   posts: [],
-  post: {
+  uniquePost: {
     id: null,
     timestamp: Date.now(),
     title: null,
@@ -45,6 +45,11 @@ function PostStore(state = initialPostState, action) {
       return {
         ...state,
         posts: action.posts
+      };
+    case GOT_POST_BY_ID:
+      return {
+        ...state,
+        uniquePost: action.post
       };
     case AFTER_VOTE: {
       let posts = state.posts.map(a => ({...a}));

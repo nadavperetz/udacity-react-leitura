@@ -29,6 +29,16 @@ export function fetchPostsByCategory(category_path) {
       })
 }
 
+export function fetchPostById(postId) {
+  return fetch(`http://localhost:3001/posts/${postId}`, {headers: {'Authorization': 'whatever-you-want'}})
+      .then((res) =>
+          res.json()
+      )
+      .then((posts) => {
+        return posts
+      })
+}
+
 export function postVotePost(post_id, vote) {
   return fetch(`http://localhost:3001/posts/${post_id}`, {
     headers: {

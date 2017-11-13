@@ -5,13 +5,13 @@ import {bindActionCreators} from 'redux'
 import {Grid, Col, Row} from 'react-bootstrap'
 import sortBy from 'sort-by'
 
-import {getCategories} from '../actions/categories'
-import {getPosts, upVotePost, downVote} from '../actions/posts'
+import {getCategories} from '../../actions/categories'
+import {getPosts, upVotePost, downVote} from '../../actions/posts'
 
-import Header from '../components/Layout/Header'
-import CategoriesSideBar from '../components/Categories/SideBarView'
-import PostList from '../components/Posts/PostList'
-import FilterPosts from "./Layout/FilterPosts"
+import Header from '../Layout/Header'
+import CategoriesSideBar from '../Categories/SideBarView'
+import PostListConst from './PostListConst'
+import FilterPosts from "../Layout/FilterPosts"
 
 class ListPosts extends Component {
   constructor(props) {
@@ -64,7 +64,7 @@ class ListPosts extends Component {
             <br/>
 
             <Col md={9}>
-              <PostList posts={posts} upVote={this.props.upVotePost} downVote={this.props.downVotePost}/>
+              <PostListConst posts={posts} upVote={this.props.upVotePost} downVote={this.props.downVotePost}/>
             </Col>
             <Col md={2}>
               <CategoriesSideBar categories={this.props.categories} activeCategory={activeCategory}/>

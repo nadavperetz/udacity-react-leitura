@@ -4,7 +4,7 @@ import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up'
 import FaThumbsODown from 'react-icons/lib/fa/thumbs-o-down'
 import {Link} from "react-router-dom";
 
-const PostList = (props) => (
+const PostListConst = (props) => (
     <div>
       {props.posts && props.posts.map((post, index) => {
           return (<Row key={index}>
@@ -39,4 +39,4 @@ const PostList = (props) => (
     </div>
 );
 
-export default PostList;
+export default PostListConst;

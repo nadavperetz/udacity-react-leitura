@@ -1,6 +1,7 @@
-import {fetchPosts, fetchPostsByCategory, postVotePost} from "../utils/api";
+import {fetchPosts, fetchPostsByCategory, postVotePost, fetchPostById} from "../utils/api";
 
 export const GOT_POSTS = 'GOT_POSTS'
+export const GOT_POST_BY_ID = 'GOT_POST_BY_ID'
 export const AFTER_VOTE = 'AFTER_VOTE'
 
 export function upVotePost(post_id) {
@@ -42,6 +43,22 @@ export const gotPosts = (posts) => {
   return {
     type: GOT_POSTS,
     posts
+  }
+};
+
+export function getPostById(postId) {
+  return (dispatch) => {
+    fetchPostById(postId).then((posts) => {
+          dispatch(gotPostById(posts))
+        }
+    );
+  }
+}
+
+export const gotPostById = (post) => {
+  return {
+    type: GOT_POST_BY_ID,
+    post
   }
 };
 
