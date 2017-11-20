@@ -41,7 +41,7 @@ class ListPosts extends Component {
   }
 
   componentDidUpdate(){
-    if (this.props.post.id === null) {
+    if (this.props.post.id === null || this.props.post.deleted || this.props.post === undefined) {
       this.redirect()
     }
   }
@@ -89,7 +89,7 @@ class ListPosts extends Component {
   }
 
   deletePost = (postId) => {
-    this.props.edi({
+    this.props.editPost({
       id: postId,
       deleted: true
     }, this.props.match.params.category)

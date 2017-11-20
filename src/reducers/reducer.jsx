@@ -52,9 +52,12 @@ function PostStore(state = initialPostState, action) {
       };
 
     case GOT_POST_BY_ID:
+      let post = action.post
+      if (post.id === undefined)
+        post = initialPostState.uniquePost
       return {
         ...state,
-        uniquePost: action.post
+        uniquePost: post
       };
 
     case UPDATE_POST: {
