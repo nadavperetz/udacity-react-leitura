@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {editPost} from '../../actions/posts'
 import {Modal, Button, FormGroup, ControlLabel, FormControl, HelpBlock} from 'react-bootstrap'
-import {v4} from 'node-uuid'
 import {getCategories} from "../../actions/categories";
 
 function FieldGroup({id, label, help, ...props}) {
@@ -19,78 +18,97 @@ function FieldGroup({id, label, help, ...props}) {
 
 class PostModal extends Component {
 
+  static propTypes = {
+    post: PropTypes.object,
+    showPostModal: PropTypes.bool.isRequired,
+    closePostModal: PropTypes.func.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
+      newPost: true,
       title: '',
       body: '',
       author: '',
       category: ''
     }
     this.handleAuthorChange = this.handleAuthorChange.bind(this);
-    this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
   }
 
-  static propTypes = {
-    post: PropTypes.object
-  };
 
   componentWillMount() {
     this.props.getCategories();
   }
 
-  componentWillReceiveProps(){
-    if (this.props.post !== undefined){
+  onEntered(){
+    if (this.props.post !== null) {
       this.setState({
+        newPost: false,
         title: this.props.post.title,
         body: this.props.post.body,
         author: this.props.post.author,
         category: this.props.post.category
       })
-
     }
+
   }
-  handleAuthorChange = (event) =>{
+
+
+  handleAuthorChange = (event) => {
     this.setState({author: event.target.value});
 
   }
 
-  handleCommentChange = (event) =>{
+  handleBodyChange = (event) => {
     this.setState({body: event.target.value});
   }
 
-  handleTitleChange = (event) =>{
-    this.setState({body: event.target.value});
+  handleTitleChange = (event) => {
+    this.setState({title: event.target.value});
   }
 
-  handleCategoryChange = (event) =>{
-    this.setState({body: event.target.value});
+  handleCategoryChange = (event) => {
+    this.setState({category: event.target.value});
   }
 
   postComment = (event) => {
     event.preventDefault();
-    this.props.createNewComment({
-      id: v4(),
-      parentId:  this.props.post.id,
-      timestamp: Date.now(),
-      body: this.state.body,
-      author: this.state.author,
-      voteScore:  this.props.post.voteScore,
-      deleted: false,
-      parentDeleted: this.props.post.deleted
-    })
-    this.props.closeCommentModal()
+    if (this.state.newPost) {
+      this.props.editPost({
+        title: this.state.title,
+        body: this.state.body,
+        author: this.state.author,
+        category: this.state.category,
+      })
+    }
+    else {
+      this.props.editPost({
+        id: this.props.post.id,
+        timestamp: Date.now(),
+        title: this.state.title,
+        body: this.state.body,
+        author: this.state.author,
+        category: this.state.category,
+      })
+    }
+    this.props.closePostModal()
     this.setState({
+      newPost: true,
+      title: '',
       body: '',
       author: '',
+      category: ''
     })
   }
 
   render() {
     return (
-        <Modal show={this.props.showPostModal} onHide={() => this.props.closePostModal()}>
+        <Modal show={this.props.showPostModal} onHide={() => this.props.closePostModal()}
+               onEntered={() => this.onEntered()}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
@@ -107,10 +125,25 @@ class PostModal extends Component {
               <FieldGroup
                   id="formComment"
                   type="text"
-                  label="Comment"
-                  placeholder="Insert comment"
-                  value={this.state.body}
-                  onChange={this.handleCommentChange}
+                  label="title"
+                  placeholder="Insert title"
+                  value={this.state.title}
+                  onChange={this.handleTitleChange}
+              /> <FieldGroup
+                id="formComment"
+                type="text"
+                label="body"
+                placeholder="Insert body"
+                value={this.state.body}
+                onChange={this.handleBodyChange}
+            />
+              <FieldGroup
+                  id="formComment"
+                  type="text"
+                  label="category"
+                  placeholder="Insert category"
+                  value={this.state.category}
+                  onChange={this.handleCategoryChange}
               />
 
               <Button type="submit" onClick={this.postComment}>
@@ -125,7 +158,6 @@ class PostModal extends Component {
 
 function mapStateToProps(state) {
   return {
-    post: state.PostStore.uniquePost,
     categories: state.CategoryStore.categories
   }
 }

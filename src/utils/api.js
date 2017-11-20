@@ -83,7 +83,8 @@ export function fetchCommentsByPostId(postId) {
   return fetch(`http://localhost:3001/posts/${postId}/comments`, {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'whatever-you-want'}
+      'Authorization': 'whatever-you-want'
+    }
   })
       .then((res) => {
             return res.json()
@@ -94,13 +95,14 @@ export function fetchCommentsByPostId(postId) {
       })
 }
 
-export function patchEditPost(post) {
+export function putEditPost(post) {
   return fetch(`http://localhost:3001/posts/${post.id}`, {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'whatever-you-want'},
-    method: "PATCH",
-    body: JSON.stringify({post})
+      'Authorization': 'whatever-you-want'
+    },
+    method: "PUT",
+    body: JSON.stringify(post)
   })
       .then((res) => {
             return res.json()
@@ -108,6 +110,30 @@ export function patchEditPost(post) {
       )
       .then((post) => {
         return post
+      })
+      .catch(function (res) {
+        console.log(res)
+      })
+}
+
+export function createPost(post) {
+  return fetch(`http://localhost:3001/posts/`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'whatever-you-want'
+    },
+    method: "POST",
+    body: JSON.stringify(post)
+  })
+      .then((res) => {
+            return res.json()
+          }
+      )
+      .then((post) => {
+        return post
+      })
+      .catch(function (res) {
+        console.log(res)
       })
 }
 

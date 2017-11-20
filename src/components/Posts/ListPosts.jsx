@@ -20,7 +20,8 @@ class ListPosts extends Component {
     this.state = {
       filter: '-voteScore',
       activeCategory: '',
-      showPostModal: false
+      showPostModal: false,
+      editablePost: null
     }
   }
 
@@ -34,13 +35,13 @@ class ListPosts extends Component {
     let signal = filter.slice(0)
     let is_negative = (signal === '-')
     if (is_negative)
-      filter = filter.slice(1, )
-    if ((newFilter === filter) && !is_negative){
-        this.setState({
-          filter: "-" + newFilter
-        })
+      filter = filter.slice(1,)
+    if ((newFilter === filter) && !is_negative) {
+      this.setState({
+        filter: "-" + newFilter
+      })
     }
-    else{
+    else {
       this.setState({
         filter: newFilter
       })
@@ -52,7 +53,21 @@ class ListPosts extends Component {
   }
 
   closePostModal() {
-    this.setState({showPostModal: false});
+    this.setState({
+      showPostModal: false,
+      editablePost: null
+    });
+  }
+
+  editPost = (post) => {
+    this.setState({
+      showPostModal: true,
+      editablePost: post
+    });
+  }
+
+  deletePost(){
+
   }
 
 
@@ -66,10 +81,10 @@ class ListPosts extends Component {
           <Grid>
             <Row>
               <Col md={2}>
-                <Button  bsStyle="info" onClick={() => this.openPostModal()}>New post</Button>
+                <Button bsStyle="info" onClick={() => this.openPostModal()}>New post</Button>
               </Col>
               <Col md={7}>
-               <FilterPosts title="Filter" options={filterOptions} changeFilter={this.changeFilter}/>
+                <FilterPosts title="Filter" options={filterOptions} changeFilter={this.changeFilter}/>
               </Col>
               <Col md={3}>
               </Col>
@@ -77,14 +92,17 @@ class ListPosts extends Component {
             <br/>
 
             <Col md={9}>
-              <PostListConst posts={posts} votePost={this.props.votePost}/>
+              <PostListConst posts={posts} votePost={this.props.votePost} editPost={this.editPost}
+                             deletePost={this.deletePost}/>
             </Col>
             <Col md={2}>
               <CategoriesSideBar categories={this.props.categories} activeCategory={activeCategory}/>
             </Col>
             <Col md={1}>
             </Col>
-            <PostModal showCommentModal={this.state.showPostModal} closeCommentModal={() => this.closePostModal()}
+            <PostModal showPostModal={this.state.showPostModal}
+                       post={this.state.editablePost}
+                       closePostModal={() => this.closePostModal()}
             />
           </Grid>
         </div>
