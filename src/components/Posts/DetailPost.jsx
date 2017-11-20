@@ -29,7 +29,9 @@ class ListPosts extends Component {
 
   componentWillMount() {
     this.props.getPostById(this.props.match.params.id);
+    this.props.getComments(this.props.match.params.id);
   }
+
 
   openCommentModal() {
     this.setState({showCommentModal: true});
