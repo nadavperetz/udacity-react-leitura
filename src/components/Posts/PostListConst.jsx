@@ -1,9 +1,8 @@
 import React from 'react';
-import {Panel, Row, Col, Button} from 'react-bootstrap'
+import {Button, Col, Panel, Row} from 'react-bootstrap'
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up'
 import FaThumbsODown from 'react-icons/lib/fa/thumbs-o-down'
 import PanelHeaderPost from "./PanelHeaderPost";
-
 
 const PostListConst = (props) => (
     <div>

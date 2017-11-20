@@ -1,6 +1,6 @@
 import {v4} from 'node-uuid'
 
-import {fetchPosts, fetchPostsByCategory, postVotePost, fetchPostById, putEditPost, createPost} from "../utils/api";
+import {createPost, fetchPostById, fetchPosts, fetchPostsByCategory, postVotePost, putEditPost} from "../utils/api";
 
 export const GOT_POSTS = 'GOT_POSTS'
 export const GOT_POST_BY_ID = 'GOT_POST_BY_ID'
@@ -21,7 +21,7 @@ export function editPost(post, category) {
           dispatch(updatePost(post, category))
       )
     }
-    else{
+    else {
       post.id = v4()
       createPost(post).then((post) =>
           dispatch(updatePost(post, category))

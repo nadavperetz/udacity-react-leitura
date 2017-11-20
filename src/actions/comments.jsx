@@ -1,4 +1,4 @@
-import {fetchCommentsByPostId, fetchCreateNewComment, postVoteComment, fetchEditComment} from "../utils/api";
+import {fetchCommentsByPostId, fetchCreateNewComment, fetchEditComment, postVoteComment} from "../utils/api";
 
 // export const GET_COMMENT = 'GET_COMMENT'
 export const UPDATE_COMMENT = 'UPDATE_COMMENT'

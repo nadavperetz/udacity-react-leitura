@@ -1,9 +1,7 @@
 import {combineReducers} from 'redux';
 
-// import {GET_COMMENT} from '../actions/comments'
-// import {GET_POST} from '../actions/posts'
 import {GOT_CATEGORIES} from '../actions/categories'
-import {UPDATE_POST, GOT_POST_BY_ID, GOT_POSTS} from "../actions/posts";
+import {GOT_POST_BY_ID, GOT_POSTS, UPDATE_POST} from "../actions/posts";
 import {GET_ALL_POST_COMMENTS, UPDATE_COMMENT} from "../actions/comments";
 
 const initialPostState = {

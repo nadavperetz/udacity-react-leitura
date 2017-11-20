@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {createNewComment, editComment} from '../../actions/comments'
-import {Modal, Button, FormGroup, ControlLabel, FormControl, HelpBlock} from 'react-bootstrap'
+import {Button, ControlLabel, FormControl, FormGroup, HelpBlock, Modal} from 'react-bootstrap'
 import {v4} from 'node-uuid'
 
 function FieldGroup({id, label, help, ...props}) {
@@ -45,7 +45,7 @@ class CommentModal extends Component {
     this.setState({body: event.target.value});
   }
 
-  onEntered = ()  => {
+  onEntered = () => {
     if (this.props.comment !== null && this.props.comment !== undefined) {
       this.setState({
         newComment: false,
@@ -70,7 +70,7 @@ class CommentModal extends Component {
         parentDeleted: this.props.post.deleted
       })
     }
-    else{
+    else {
       this.props.editComment({
         id: this.props.comment.id,
         parentId: this.props.comment.parentId,

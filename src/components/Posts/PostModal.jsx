@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {editPost} from '../../actions/posts'
-import {Modal, Button, FormGroup, ControlLabel, FormControl, HelpBlock} from 'react-bootstrap'
+import {Button, ControlLabel, FormControl, FormGroup, HelpBlock, Modal} from 'react-bootstrap'
 import {getCategories} from "../../actions/categories";
 
 function FieldGroup({id, label, help, ...props}) {

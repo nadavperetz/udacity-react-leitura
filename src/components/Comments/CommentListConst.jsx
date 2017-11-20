@@ -1,9 +1,7 @@
 import React from 'react';
-import {Panel, Row, Col, Button, ButtonToolbar} from 'react-bootstrap'
+import {Button, ButtonToolbar, Col, Panel, Row} from 'react-bootstrap'
 import FaEdit from 'react-icons/lib/fa/edit'
 import FaClose from 'react-icons/lib/fa/close'
-// import {Link} from "react-router-dom";
-
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up'
 import FaThumbsODown from 'react-icons/lib/fa/thumbs-o-down'
 

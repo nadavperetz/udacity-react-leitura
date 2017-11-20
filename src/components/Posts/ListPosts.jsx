@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import {Grid, Col, Row, Button} from 'react-bootstrap'
+import {Button, Col, Grid, Row} from 'react-bootstrap'
 import sortBy from 'sort-by'
 
 import {getCategories} from '../../actions/categories'
-import {getPosts, votePost, editPost} from '../../actions/posts'
+import {editPost, getPosts, votePost} from '../../actions/posts'
 
 import Header from '../Layout/Header'
 import CategoriesSideBar from '../Categories/SideBarView'
