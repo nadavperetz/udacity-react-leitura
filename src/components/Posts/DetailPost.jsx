@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import {withRouter} from "react-router-dom"
+import {Button, Col, Grid, Row} from 'react-bootstrap'
 
-import {Grid, Col, Row, Button} from 'react-bootstrap'
-
-import {getPostById, votePost} from '../../actions/posts'
+import {editPost, getPostById, votePost} from '../../actions/posts'
 
 import Header from '../Layout/Header'
 import PostDetailConst from './PostDetailConst'
@@ -14,6 +14,8 @@ import CommentListConst from "../Comments/CommentListConst";
 
 import sortBy from 'sort-by'
 import FilterPosts from "../Layout/FilterPosts";
+import PostModal from "./PostModal";
+
 
 class ListPosts extends Component {
 
@@ -27,9 +29,20 @@ class ListPosts extends Component {
     }
   }
 
+  redirect() {
+    this.props.history.push('/');
+  }
+
   componentWillMount() {
     this.props.getPostById(this.props.match.params.id);
     this.props.getComments(this.props.match.params.id);
+  }
+
+  componentDidUpdate(){
+    if (this.props.post.id === null) {
+      console.log('epa')
+      this.redirect()
+    }
   }
 
 
@@ -41,12 +54,12 @@ class ListPosts extends Component {
     this.setState({showCommentModal: false});
   }
 
-  openPostModal() {
-    this.setState({showEditModal: true});
+  closeEditModal() {
+    this.setState({showEditModal: false});
   }
 
-  closePostModal() {
-    this.setState({showEditModal: false});
+  openEditModal() {
+    this.setState({showEditModal: true});
   }
 
   changeFilter = (newFilter) => {
@@ -54,17 +67,32 @@ class ListPosts extends Component {
     let signal = filter.slice(0)
     let is_negative = (signal === '-')
     if (is_negative)
-      filter = filter.slice(1, )
-    if ((newFilter === filter) && !is_negative){
+      filter = filter.slice(1,)
+    if ((newFilter === filter) && !is_negative) {
       this.setState({
         filter: "-" + newFilter
       })
     }
-    else{
+    else {
       this.setState({
         filter: newFilter
       })
     }
+  }
+
+  editPost = (post) => {
+    this.setState({
+      showEditModal: true,
+      editablePost: post
+    });
+  }
+
+  deletePost = (postId) => {
+    this.props.editPost({
+      id: postId,
+      deleted: true
+    }, this.props.match.params.category)
+    this.redirect()
   }
 
   render() {
@@ -77,12 +105,15 @@ class ListPosts extends Component {
             <Row>
               <Col md={9}>
                 <PostDetailConst post={this.props.post}
+                                 editPost={this.editPost}
+                                 deletePost={this.deletePost}
+                                 showPostModal={this.openEditModal}
                                  votePost={this.props.votePost}/>
               </Col>
             </Row>
             <Row>
               <Col md={2}>
-                <Button  bsStyle="info" onClick={() => this.openCommentModal()}>New comment</Button>
+                <Button bsStyle="info" onClick={() => this.openCommentModal()}>New comment</Button>
               </Col>
               <Col md={7}>
                 <FilterPosts title="Filter" options={filterOptions} changeFilter={this.changeFilter}/>
@@ -90,13 +121,17 @@ class ListPosts extends Component {
             </Row>
             <br/>
             <Col md={9}>
-              <CommentListConst comments={comments} vote={(commentId, voteType) => this.props.voteComment(commentId, voteType)}/>
+              <CommentListConst comments={comments}
+                                vote={(commentId, voteType) => this.props.voteComment(commentId, voteType)}/>
             </Col>
           </Grid>
           <CommentModal showCommentModal={this.state.showCommentModal}
                         closeCommentModal={() => this.closeCommentModal()}
                         post={this.props.post}
           />
+          <PostModal showPostModal={this.state.showEditModal}
+                     post={this.state.editablePost}
+                     closePostModal={() => this.closeEditModal()}/>
         </div>
 
 
@@ -114,10 +149,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getPostById: bindActionCreators(getPostById, dispatch),
+    editPost: bindActionCreators(editPost, dispatch),
     votePost: bindActionCreators(votePost, dispatch),
     getComments: bindActionCreators(getAllPostComments, dispatch),
     voteComment: bindActionCreators(voteComment, dispatch),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListPosts)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ListPosts))

@@ -1,33 +1,15 @@
 import React from 'react';
-import {Panel, Row, Col, Button, ButtonToolbar} from 'react-bootstrap'
+import {Panel, Row, Col, Button} from 'react-bootstrap'
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up'
 import FaThumbsODown from 'react-icons/lib/fa/thumbs-o-down'
-import FaEdit from 'react-icons/lib/fa/edit'
-import FaClose from 'react-icons/lib/fa/close'
-import {Link} from "react-router-dom";
+import PanelHeaderPost from "./PanelHeaderPost";
 
-const PanelHeader = (post, editPost, deletePost) => {
-  return (
-      <div>
-        <Link to={`/${post.category}/${post.id}`}>{post.title}</Link>
-        <ButtonToolbar className="pull-right">
-          <Button className="pull-right" onClick={() => deletePost(post.id)}>
-            <FaClose/>
-          </Button>
-          <Button className="pull-right" onClick={() => editPost(post)}>
-            <FaEdit/>
-          </Button>
-        </ButtonToolbar>
-        <br/>
-      </div>
-  )
-}
 
 const PostListConst = (props) => (
     <div>
       {props.posts && props.posts.map((post, index) => {
             return (<Row key={index}>
-                  <Panel header={PanelHeader(post, props.editPost, props.deletePost)} key={index}>
+                  <Panel header={PanelHeaderPost(post, props.editPost, props.deletePost)} key={index}>
                     <Col md={4}>
                       <div>
                         <strong>Author: </strong>{post.author}

@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import {BrowserRouter} from 'react-router-dom'
-
-import {createStore, applyMiddleware, compose} from 'redux'
+import {Router} from 'react-router-dom'
+import {applyMiddleware, compose, createStore} from 'redux'
+import createBrowserHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
 
 
 import reducer from './reducers/reducer'
 import registerServiceWorker from './registerServiceWorker'
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -18,12 +18,11 @@ const store = createStore(reducer,
 )
 
 
-
 ReactDOM.render(
     <Provider store={store}>
-      <BrowserRouter>
+      <Router history={createBrowserHistory()}>
         <App/>
-      </BrowserRouter>
+      </Router>
 
     </Provider>,
     document.getElementById('root')

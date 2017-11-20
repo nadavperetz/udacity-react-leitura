@@ -2,10 +2,11 @@ import React from 'react';
 import {Panel, Row, Col, Button} from 'react-bootstrap'
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up'
 import FaThumbsODown from 'react-icons/lib/fa/thumbs-o-down'
+import PanelHeaderPost from "./PanelHeaderPost";
 
 const postDetailConst = (props) => (
     <div>
-      <Panel header={props.post.title}>
+      <Panel header={PanelHeaderPost(props.post, props.editPost, props.deletePost)} key={0}>
         <Row>
           <Col md={12}>
             {props.post.body}
