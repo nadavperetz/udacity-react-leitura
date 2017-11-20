@@ -126,6 +126,7 @@ export function fetchEditComment(comment) {
     body: JSON.stringify(comment)
   })
       .then((res) => {
+    console.log(res);
             return res.json()
           }
       )

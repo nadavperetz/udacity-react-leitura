@@ -72,8 +72,14 @@ class CommentModal extends Component {
     }
     else{
       this.props.editComment({
+        id: this.props.comment.id,
+        parentId: this.props.comment.parentId,
+        timestamp: Date.now(),
         body: this.state.body,
-        author: this.state.author
+        author: this.state.author,
+        voteScore: this.props.comment.voteScore,
+        deleted: this.props.comment.deleted,
+        parentDeleted: this.props.comment.parentDeleted
       })
     }
     this.props.closeCommentModal()
