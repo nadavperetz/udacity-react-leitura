@@ -6,7 +6,7 @@ import {Grid, Col, Row, Button} from 'react-bootstrap'
 import sortBy from 'sort-by'
 
 import {getCategories} from '../../actions/categories'
-import {getPosts, votePost} from '../../actions/posts'
+import {getPosts, votePost, editPost} from '../../actions/posts'
 
 import Header from '../Layout/Header'
 import CategoriesSideBar from '../Categories/SideBarView'
@@ -66,7 +66,11 @@ class ListPosts extends Component {
     });
   }
 
-  deletePost(){
+  deletePost = (postId) => {
+    this.props.editPost({
+      id: postId,
+      deleted: true
+    }, this.props.match.params.category)
 
   }
 
@@ -102,6 +106,7 @@ class ListPosts extends Component {
             </Col>
             <PostModal showPostModal={this.state.showPostModal}
                        post={this.state.editablePost}
+                       activeCategory={activeCategory}
                        closePostModal={() => this.closePostModal()}
             />
           </Grid>
@@ -122,6 +127,7 @@ function mapDispatchToProps(dispatch) {
   return {
     getCategories: bindActionCreators(getCategories, dispatch),
     getPosts: bindActionCreators(getPosts, dispatch),
+    editPost: bindActionCreators(editPost, dispatch),
     votePost: bindActionCreators(votePost, dispatch),
 
   }

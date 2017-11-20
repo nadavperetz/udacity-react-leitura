@@ -9,22 +9,22 @@ export const UPDATE_POST = 'UPDATE_POST'
 export function votePost(postId, voteType) {
   return (dispatch) => {
     postVotePost(postId, voteType).then((post) =>
-        dispatch(updatePost(post))
+        dispatch(updatePost(post, undefined))
     )
   }
 }
 
-export function editPost(post) {
+export function editPost(post, category) {
   return (dispatch) => {
     if (post.id !== undefined) {
       putEditPost(post).then((post) =>
-          dispatch(updatePost(post))
+          dispatch(updatePost(post, category))
       )
     }
     else{
       post.id = v4()
       createPost(post).then((post) =>
-          dispatch(updatePost(post))
+          dispatch(updatePost(post, category))
       )
     }
   }
@@ -72,10 +72,11 @@ export const gotPostById = (post) => {
   }
 };
 
-export const updatePost = (post) => {
+export const updatePost = (post, category) => {
   return {
     type: UPDATE_POST,
-    post
+    post,
+    category
   }
 };
 

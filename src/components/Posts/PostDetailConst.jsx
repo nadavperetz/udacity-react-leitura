@@ -13,25 +13,28 @@ const postDetailConst = (props) => (
         </Row>
         <br/>
         <Row>
-          <Col md={4}>
+          <Col md={2}>
             <div>
               <strong>Author: </strong>{props.post.author}
             </div>
           </Col>
           <Col md={4}>
             <div>
-              <strong>Timestamp: </strong>{new Date(props.post.timestamp).toLocaleString()}
+              <strong>Date: </strong>{new Date(props.post.timestamp).toLocaleString()}
+            </div>
+          </Col>
+          <Col md={2}>
+            <div>
+              <strong>Comments: </strong>{props.post.commentCount}
             </div>
           </Col>
           <Col md={2}>
             <strong>Score: </strong>{props.post.voteScore}
           </Col>
-          <Col md={1}>
+          <Col md={2}>
             <Button onClick={() => props.votePost(props.post.id, "upVote")}>
               <FaThumbsOUp/>
             </Button>
-          </Col>
-          <Col md={1}>
             <Button onClick={() => props.votePost(props.post.id, "downVote")}>
               <FaThumbsODown/>
             </Button>

@@ -10,7 +10,7 @@ const PanelHeader = (post, editPost, deletePost) => {
   return (
       <div>
         <Link to={`/${post.category}/${post.id}`}>{post.title}</Link>
-        <ButtonToolbar className="pull-right" >
+        <ButtonToolbar className="pull-right">
           <Button className="pull-right" onClick={() => deletePost(post.id)}>
             <FaClose/>
           </Button>

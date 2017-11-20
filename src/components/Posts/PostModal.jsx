@@ -21,7 +21,8 @@ class PostModal extends Component {
   static propTypes = {
     post: PropTypes.object,
     showPostModal: PropTypes.bool.isRequired,
-    closePostModal: PropTypes.func.isRequired
+    closePostModal: PropTypes.func.isRequired,
+    activeCategory: PropTypes.string
   };
 
   constructor(props) {
@@ -83,7 +84,7 @@ class PostModal extends Component {
         body: this.state.body,
         author: this.state.author,
         category: this.state.category,
-      })
+      }, this.props.activeCategory)
     }
     else {
       this.props.editPost({
@@ -93,7 +94,7 @@ class PostModal extends Component {
         body: this.state.body,
         author: this.state.author,
         category: this.state.category,
-      })
+      }, this.props.activeCategory)
     }
     this.props.closePostModal()
     this.setState({

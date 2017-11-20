@@ -40,7 +40,7 @@ const defaultCategories = {
     {
       name: 'all',
       path: 'all'
-    }]
+    }],
 };
 
 function PostStore(state = initialPostState, action) {
@@ -50,18 +50,32 @@ function PostStore(state = initialPostState, action) {
         ...state,
         posts: action.posts
       };
+
     case GOT_POST_BY_ID:
       return {
         ...state,
         uniquePost: action.post
       };
+
     case UPDATE_POST: {
       let posts = state.posts.map(a => ({...a}));
       let idx = posts.findIndex((post) => post.id === action.post.id)
+      const deleted = action.post.deleted;
+      let sameCategory = true;
+      if ((action.category !== undefined ) && (action.category !== action.post.category)){
+        sameCategory = false
+      }
+
       if (idx >= 0)
-        posts[idx] = action.post
-      else
-        posts.push(action.post);
+        if (!deleted && sameCategory)
+          posts[idx] = action.post;
+        else
+          posts.splice(idx,1);
+
+      else {
+        if (!deleted && sameCategory)
+          posts.push(action.post);
+      }
       return {
         posts: posts,
         uniquePost: action.post
@@ -85,8 +99,10 @@ function CommentStore(state = initialCommentState, action) {
       let idx = comments.findIndex((comment) => comment.id === action.comment.id)
       if (idx >= 0)
         comments[idx] = action.comment
-      else
-        comments.push(action.comment);
+      else {
+        if (!action.comment.deleted)
+          comments.push(action.comment);
+      }
       return{
         comments: comments,
         uniqueComment:action.comment
