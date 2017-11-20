@@ -43,15 +43,88 @@ export function postVotePost(post_id, vote) {
   return fetch(`http://localhost:3001/posts/${post_id}`, {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'whatever-you-want'},
+      'Authorization': 'whatever-you-want'
+    },
     method: "POST",
-    body: JSON.stringify( {option: vote} )
+    body: JSON.stringify({option: vote})
   })
       .then((res) =>
           res.json()
       )
       .then((post) => {
         return post
+      })
+      .catch(function (res) {
+        console.log(res)
+      })
+}
+
+export function fetchCreateNewComment(comment) {
+  return fetch(`http://localhost:3001/comments/`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'whatever-you-want'
+    },
+    method: "POST",
+    body: JSON.stringify(comment)
+  })
+      .then((res) =>
+          res.json()
+      )
+      .then((comment) => {
+        return comment
+      })
+      .catch(function (res) {
+        console.log(res)
+      })
+}
+
+export function fetchCommentsByPostId(postId) {
+  return fetch(`http://localhost:3001/posts/${postId}/comments`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'whatever-you-want'}
+  })
+      .then((res) => {
+            return res.json()
+          }
+      )
+      .then((posts) => {
+        return posts
+      })
+}
+
+export function patchEditPost(post) {
+  return fetch(`http://localhost:3001/posts/${post.id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'whatever-you-want'},
+    method: "PATCH",
+    body: JSON.stringify({post})
+  })
+      .then((res) => {
+            return res.json()
+          }
+      )
+      .then((post) => {
+        return post
+      })
+}
+
+export function postVoteComment(postId, voteType) {
+  return fetch(`http://localhost:3001/comments/${postId}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'whatever-you-want'
+    },
+    method: "POST",
+    body: JSON.stringify({"option": voteType})
+  })
+      .then((res) =>
+          res.json()
+      )
+      .then((comment) => {
+        return comment
       })
       .catch(function (res) {
         console.log(res)

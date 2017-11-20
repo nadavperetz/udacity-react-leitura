@@ -27,12 +27,12 @@ const postDetailConst = (props) => (
             <strong>Score: </strong>{props.post.voteScore}
           </Col>
           <Col md={1}>
-            <Button onClick={() => props.upVote(props.post.id)}>
+            <Button onClick={() => props.votePost(props.post.id, "upVote")}>
               <FaThumbsOUp/>
             </Button>
           </Col>
           <Col md={1}>
-            <Button onClick={() => props.downVote(props.post.id)}>
+            <Button onClick={() => props.votePost(props.post.id, "downVote")}>
               <FaThumbsODown/>
             </Button>
           </Col>

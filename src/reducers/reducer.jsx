@@ -3,7 +3,8 @@ import {combineReducers} from 'redux';
 // import {GET_COMMENT} from '../actions/comments'
 // import {GET_POST} from '../actions/posts'
 import {GOT_CATEGORIES} from '../actions/categories'
-import {AFTER_VOTE, GOT_POST_BY_ID, GOT_POSTS} from "../actions/posts";
+import {UPDATE_POST, GOT_POST_BY_ID, GOT_POSTS} from "../actions/posts";
+import {GET_ALL_POST_COMMENTS, UPDATE_COMMENT} from "../actions/comments";
 
 const initialPostState = {
   posts: [],
@@ -21,14 +22,17 @@ const initialPostState = {
 };
 
 const initialCommentState = {
-  id: null,
-  parentId: null,
-  timestamp: Date.now(),
-  body: null,
-  author: null,
-  voteScore: 0,
-  deleted: false,
-  parentDeleted: false
+  comments: [],
+  uniqueComment: {
+    id: null,
+    parentId: null,
+    timestamp: Date.now(),
+    body: null,
+    author: null,
+    voteScore: 0,
+    deleted: false,
+    parentDeleted: false
+  }
 };
 
 const defaultCategories = {
@@ -51,13 +55,16 @@ function PostStore(state = initialPostState, action) {
         ...state,
         uniquePost: action.post
       };
-    case AFTER_VOTE: {
+    case UPDATE_POST: {
       let posts = state.posts.map(a => ({...a}));
       let idx = posts.findIndex((post) => post.id === action.post.id)
-      posts[idx] = action.post
+      if (idx >= 0)
+        posts[idx] = action.post
+      else
+        posts.push(action.post);
       return {
-        ...state,
-        posts: posts
+        posts: posts,
+        uniquePost: action.post
       };
     }
     default:
@@ -67,6 +74,23 @@ function PostStore(state = initialPostState, action) {
 
 function CommentStore(state = initialCommentState, action) {
   switch (action.type) {
+
+    case GET_ALL_POST_COMMENTS:
+      return {
+        ...state,
+        comments: action.comments
+      }
+    case UPDATE_COMMENT:
+      let comments = state.comments.map(a => ({...a}));
+      let idx = comments.findIndex((comment) => comment.id === action.comment.id)
+      if (idx >= 0)
+        comments[idx] = action.comment
+      else
+        comments.push(action.comment);
+      return{
+        comments: comments,
+        uniqueComment:action.comment
+      }
     default:
       return state;
   }

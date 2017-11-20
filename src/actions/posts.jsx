@@ -1,23 +1,24 @@
-import {fetchPosts, fetchPostsByCategory, postVotePost, fetchPostById} from "../utils/api";
+import {fetchPosts, fetchPostsByCategory, postVotePost, fetchPostById, patchEditPost} from "../utils/api";
 
 export const GOT_POSTS = 'GOT_POSTS'
 export const GOT_POST_BY_ID = 'GOT_POST_BY_ID'
-export const AFTER_VOTE = 'AFTER_VOTE'
+export const UPDATE_POST = 'UPDATE_POST'
 
-export function upVotePost(post_id) {
+export function votePost(postId, voteType) {
   return (dispatch) => {
-    postVotePost(post_id, "upVote").then((post) =>
-        dispatch(afterVote(post))
+    postVotePost(postId, voteType).then((post) =>
+        dispatch(updatePost(post))
     )
   }
 }
 
-export function downVote(post_id) {
+export function editPost(post) {
   return (dispatch) => {
-    postVotePost(post_id, "downVote").then((post) =>
-        dispatch(afterVote(post))
+    patchEditPost(post).then((post) =>
+        dispatch(updatePost(post))
     )
   }
+
 }
 
 export function getPosts(category_path) {
@@ -62,9 +63,9 @@ export const gotPostById = (post) => {
   }
 };
 
-export const afterVote = (post) => {
+export const updatePost = (post) => {
   return {
-    type: AFTER_VOTE,
+    type: UPDATE_POST,
     post
   }
 };

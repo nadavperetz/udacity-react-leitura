@@ -2,23 +2,25 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import {Grid, Col, Row} from 'react-bootstrap'
+import {Grid, Col, Row, Button} from 'react-bootstrap'
 import sortBy from 'sort-by'
 
 import {getCategories} from '../../actions/categories'
-import {getPosts, upVotePost, downVote} from '../../actions/posts'
+import {getPosts, votePost} from '../../actions/posts'
 
 import Header from '../Layout/Header'
 import CategoriesSideBar from '../Categories/SideBarView'
 import PostListConst from './PostListConst'
 import FilterPosts from "../Layout/FilterPosts"
+import PostModal from "./PostModal";
 
 class ListPosts extends Component {
   constructor(props) {
     super(props);
     this.state = {
       filter: '-voteScore',
-      activeCategory: ''
+      activeCategory: '',
+      showPostModal: false
     }
   }
 
@@ -45,6 +47,14 @@ class ListPosts extends Component {
     }
   }
 
+  openPostModal() {
+    this.setState({showPostModal: true});
+  }
+
+  closePostModal() {
+    this.setState({showPostModal: false});
+  }
+
 
   render() {
     const posts = this.props.posts.sort(sortBy(this.state.filter));
@@ -55,7 +65,10 @@ class ListPosts extends Component {
           <Header/>
           <Grid>
             <Row>
-              <Col md={9}>
+              <Col md={2}>
+                <Button  bsStyle="info" onClick={() => this.openPostModal()}>New post</Button>
+              </Col>
+              <Col md={7}>
                <FilterPosts title="Filter" options={filterOptions} changeFilter={this.changeFilter}/>
               </Col>
               <Col md={3}>
@@ -64,13 +77,15 @@ class ListPosts extends Component {
             <br/>
 
             <Col md={9}>
-              <PostListConst posts={posts} upVote={this.props.upVotePost} downVote={this.props.downVotePost}/>
+              <PostListConst posts={posts} votePost={this.props.votePost}/>
             </Col>
             <Col md={2}>
               <CategoriesSideBar categories={this.props.categories} activeCategory={activeCategory}/>
             </Col>
             <Col md={1}>
             </Col>
+            <PostModal showCommentModal={this.state.showPostModal} closeCommentModal={() => this.closePostModal()}
+            />
           </Grid>
         </div>
 
@@ -89,8 +104,7 @@ function mapDispatchToProps(dispatch) {
   return {
     getCategories: bindActionCreators(getCategories, dispatch),
     getPosts: bindActionCreators(getPosts, dispatch),
-    upVotePost: bindActionCreators(upVotePost, dispatch),
-    downVotePost: bindActionCreators(downVote, dispatch),
+    votePost: bindActionCreators(votePost, dispatch),
 
   }
 }
