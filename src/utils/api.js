@@ -116,6 +116,27 @@ export function putEditPost(post) {
       })
 }
 
+export function fetchEditComment(comment) {
+  return fetch(`http://localhost:3001/comments/${comment.id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'whatever-you-want'
+    },
+    method: "PUT",
+    body: JSON.stringify(comment)
+  })
+      .then((res) => {
+            return res.json()
+          }
+      )
+      .then((post) => {
+        return post
+      })
+      .catch(function (res) {
+        console.log(res)
+      })
+}
+
 export function createPost(post) {
   return fetch(`http://localhost:3001/posts/`, {
     headers: {

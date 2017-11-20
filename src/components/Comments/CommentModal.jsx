@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {createNewComment} from '../../actions/comments'
+import {createNewComment, editComment} from '../../actions/comments'
 import {Modal, Button, FormGroup, ControlLabel, FormControl, HelpBlock} from 'react-bootstrap'
 import {v4} from 'node-uuid'
 
@@ -21,6 +21,7 @@ class CommentModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      newComment: true,
       body: '',
       author: '',
     }
@@ -31,30 +32,50 @@ class CommentModal extends Component {
   static propTypes = {
     showCommentModal: PropTypes.bool.isRequired,
     closeCommentModal: PropTypes.func.isRequired,
-    post: PropTypes.object.isRequired
+    post: PropTypes.object.isRequired,
+    comment: PropTypes.object
   };
 
-  handleAuthorChange = (event) =>{
+  handleAuthorChange = (event) => {
     this.setState({author: event.target.value});
 
   }
 
-  handleCommentChange = (event) =>{
+  handleCommentChange = (event) => {
     this.setState({body: event.target.value});
+  }
+
+  onEntered = ()  => {
+    if (this.props.comment !== null && this.props.comment !== undefined) {
+      this.setState({
+        newComment: false,
+        author: this.props.comment.author,
+        body: this.props.comment.body,
+      })
+    }
+
   }
 
   postComment = (event) => {
     event.preventDefault();
-    this.props.createNewComment({
-      id: v4(),
-      parentId:  this.props.post.id,
-      timestamp: Date.now(),
-      body: this.state.body,
-      author: this.state.author,
-      voteScore:  this.props.post.voteScore,
-      deleted: false,
-      parentDeleted: this.props.post.deleted
-    })
+    if (this.state.newComment) {
+      this.props.createNewComment({
+        id: v4(),
+        parentId: this.props.post.id,
+        timestamp: Date.now(),
+        body: this.state.body,
+        author: this.state.author,
+        voteScore: this.props.post.voteScore,
+        deleted: false,
+        parentDeleted: this.props.post.deleted
+      })
+    }
+    else{
+      this.props.editComment({
+        body: this.state.body,
+        author: this.state.author
+      })
+    }
     this.props.closeCommentModal()
     this.setState({
       body: '',
@@ -64,7 +85,8 @@ class CommentModal extends Component {
 
   render() {
     return (
-        <Modal show={this.props.showCommentModal} onHide={() => this.props.closeCommentModal()}>
+        <Modal show={this.props.showCommentModal} onHide={() => this.props.closeCommentModal()}
+               onEntered={this.onEntered}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
@@ -98,14 +120,13 @@ class CommentModal extends Component {
 }
 
 function mapStateToProps() {
-  return {
-
-  }
+  return {}
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     createNewComment: bindActionCreators(createNewComment, dispatch),
+    editComment: bindActionCreators(editComment, dispatch),
   }
 }
 

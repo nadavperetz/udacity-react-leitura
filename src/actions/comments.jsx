@@ -1,4 +1,4 @@
-import {fetchCommentsByPostId, fetchCreateNewComment, postVoteComment} from "../utils/api";
+import {fetchCommentsByPostId, fetchCreateNewComment, postVoteComment, fetchEditComment} from "../utils/api";
 
 // export const GET_COMMENT = 'GET_COMMENT'
 export const UPDATE_COMMENT = 'UPDATE_COMMENT'
@@ -36,6 +36,16 @@ export function createNewComment(comment) {
         }
     );
   }
+}
+
+export function editComment(comment) {
+  return (dispatch) => {
+    fetchEditComment(comment).then(() => {
+          dispatch(addComment(comment))
+        }
+    );
+  }
+
 }
 
 export function gotCommentsByPostId(comments) {

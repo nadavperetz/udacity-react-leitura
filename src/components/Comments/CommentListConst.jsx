@@ -1,5 +1,7 @@
 import React from 'react';
-import {Panel, Row, Col, Button} from 'react-bootstrap'
+import {Panel, Row, Col, Button, ButtonToolbar} from 'react-bootstrap'
+import FaEdit from 'react-icons/lib/fa/edit'
+import FaClose from 'react-icons/lib/fa/close'
 // import {Link} from "react-router-dom";
 
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up'
@@ -16,6 +18,16 @@ const CommentListConst = (props) => (
                       <Col md={9}>
                         {comment.body}
                       </Col>
+                      <Col md={3}>
+                        <ButtonToolbar className="pull-right">
+                          <Button className="pull-right" onClick={() => props.deleteComment(comment.id)}>
+                            <FaClose/>
+                          </Button>
+                          <Button className="pull-right" onClick={() => props.editComment(comment)}>
+                            <FaEdit/>
+                          </Button>
+                        </ButtonToolbar>
+                      </Col>
                     </Row>
                     <br/>
                     <Row>
@@ -29,19 +41,19 @@ const CommentListConst = (props) => (
                           <strong>Timestamp: </strong>{new Date(comment.timestamp).toLocaleString()}
                         </div>
                       </Col>
-                        <Col md={2}>
-                            <strong>Score: </strong>{comment.voteScore}
-                        </Col>
-                        <Col md={1}>
-                            <Button onClick={() => props.vote(comment.id, "upVote")}>
-                                <FaThumbsOUp/>
-                            </Button>
-                        </Col>
-                        <Col md={1}>
-                            <Button onClick={() => props.vote(comment.id, "downVote")}>
-                                <FaThumbsODown/>
-                            </Button>
-                        </Col>
+                      <Col md={2}>
+                        <strong>Score: </strong>{comment.voteScore}
+                      </Col>
+                      <Col md={1}>
+                        <Button onClick={() => props.vote(comment.id, "upVote")}>
+                          <FaThumbsOUp/>
+                        </Button>
+                      </Col>
+                      <Col md={1}>
+                        <Button onClick={() => props.vote(comment.id, "downVote")}>
+                          <FaThumbsODown/>
+                        </Button>
+                      </Col>
                     </Row>
                   </Panel>
                 </Row>

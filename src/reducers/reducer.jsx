@@ -95,17 +95,22 @@ function CommentStore(state = initialCommentState, action) {
         comments: action.comments
       }
     case UPDATE_COMMENT:
+      console.log(action.comment)
       let comments = state.comments.map(a => ({...a}));
       let idx = comments.findIndex((comment) => comment.id === action.comment.id)
       if (idx >= 0)
-        comments[idx] = action.comment
+        if (!action.comment.deleted)
+          comments[idx] = action.comment
+        else
+          comments.splice(idx,1);
+
       else {
         if (!action.comment.deleted)
           comments.push(action.comment);
       }
       return{
         comments: comments,
-        uniqueComment:action.comment
+        uniqueComment: action.comment
       }
     default:
       return state;

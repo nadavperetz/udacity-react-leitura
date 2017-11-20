@@ -9,7 +9,7 @@ import {editPost, getPostById, votePost} from '../../actions/posts'
 import Header from '../Layout/Header'
 import PostDetailConst from './PostDetailConst'
 import CommentModal from "../Comments/CommentModal";
-import {getAllPostComments, voteComment} from '../../actions/comments'
+import {editComment, getAllPostComments, voteComment} from '../../actions/comments'
 import CommentListConst from "../Comments/CommentListConst";
 
 import sortBy from 'sort-by'
@@ -25,7 +25,9 @@ class ListPosts extends Component {
       filter: '-voteScore',
       activeCategory: '',
       showCommentModal: false,
-      showEditModal: false
+      showEditModal: false,
+      editablePost: null,
+      editableComment: null
     }
   }
 
@@ -40,7 +42,6 @@ class ListPosts extends Component {
 
   componentDidUpdate(){
     if (this.props.post.id === null) {
-      console.log('epa')
       this.redirect()
     }
   }
@@ -88,11 +89,25 @@ class ListPosts extends Component {
   }
 
   deletePost = (postId) => {
-    this.props.editPost({
+    this.props.edi({
       id: postId,
       deleted: true
     }, this.props.match.params.category)
     this.redirect()
+  }
+
+  deleteComment = (comentId) => {
+    this.props.editComment({
+      id: comentId,
+      deleted: true
+    }, this.props.match.params.category)
+  }
+
+  editComment = (comment) => {
+    this.setState({
+      showCommentModal: true,
+      editableComment: comment
+    });
   }
 
   render() {
@@ -122,13 +137,14 @@ class ListPosts extends Component {
             <br/>
             <Col md={9}>
               <CommentListConst comments={comments}
+                                editComment={this.editComment} deleteComment={this.deleteComment}
                                 vote={(commentId, voteType) => this.props.voteComment(commentId, voteType)}/>
             </Col>
           </Grid>
           <CommentModal showCommentModal={this.state.showCommentModal}
                         closeCommentModal={() => this.closeCommentModal()}
-                        post={this.props.post}
-          />
+                        comment={this.state.editableComment}
+                        post={this.props.post}/>
           <PostModal showPostModal={this.state.showEditModal}
                      post={this.state.editablePost}
                      closePostModal={() => this.closeEditModal()}/>
@@ -153,6 +169,7 @@ function mapDispatchToProps(dispatch) {
     votePost: bindActionCreators(votePost, dispatch),
     getComments: bindActionCreators(getAllPostComments, dispatch),
     voteComment: bindActionCreators(voteComment, dispatch),
+    editComment: bindActionCreators(editComment, dispatch),
   }
 }
 
