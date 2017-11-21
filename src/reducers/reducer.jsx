@@ -96,8 +96,7 @@ function CommentStore(state = initialCommentState, action) {
         comments: action.comments
       }
     case UPDATE_COMMENT:
-      console.log(action.comment)
-      let comments = state.comments.map(a => ({...a}));
+      gilet comments = state.comments.map(a => ({...a}));
       let idx = comments.findIndex((comment) => comment.id === action.comment.id)
       if (idx >= 0)
         if (!action.comment.deleted)

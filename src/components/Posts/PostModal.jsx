@@ -73,8 +73,6 @@ class PostModal extends Component {
   }
 
   handleCategoryChange = (event) => {
-    console.log("event")
-    console.log(event.target.value)
     this.setState({category: event.target.value});
   }
 
@@ -109,8 +107,6 @@ class PostModal extends Component {
   }
 
   render() {
-    console.log(this.state)
-    console.log(this.state.category)
     return (
         <Modal show={this.props.showPostModal} onHide={() => this.props.closePostModal()}
                onEntered={() => this.onEntered()}>
