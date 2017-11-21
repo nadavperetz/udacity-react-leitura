@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07a6a20-7584-4563-a2d0-39e502589750" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Posts/PostModal.jsx" afterPath="$PROJECT_DIR$/src/components/Posts/PostModal.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,23 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Header.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Layout/Header.jsx">
+      <file leaf-file-name="PostModal.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Posts/PostModal.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reducer.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducers/reducer.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="75" column="12" lean-forward="true" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+            <state relative-caret-position="216">
+              <caret line="148" column="32" lean-forward="false" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -40,27 +29,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="270">
-                <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="ListPosts.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Posts/ListPosts.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="81" column="12" lean-forward="true" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PanelHeaderPost.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Posts/PanelHeaderPost.jsx">
+      <file leaf-file-name="PostDetailConst.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Posts/PostDetailConst.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="162">
+              <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="16" column="61" lean-forward="false" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DetailPost.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Posts/DetailPost.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="147" column="16" lean-forward="false" selection-start-line="147" selection-start-column="16" selection-end-line="147" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,7 +104,6 @@
       <find>with</find>
       <find>consol</find>
       <find>onEnter</find>
-      <find>editablePost</find>
       <find>cons</find>
       <find>edit</find>
       <find>GOT_POST_</find>
@@ -99,6 +112,7 @@
       <find>g</find>
       <find>import React\, \{Component\} from \'react\'\nimport \{connect\} from \'react\-redux\'\nimport \{bindActionCreators\} from \'redux\'\nimport \{withRouter\} from \&quot;react\-router\-dom\&quot;\nimport \{Button\, Col\, Grid\, Row\} from \'react\-bootstrap\'\n\nimport \{editPost\, getPostById\, votePost\} from \'\.\.\/\.\.\/actions\/posts\'\n\nimport Header from \'\.\.\/Layout\/Header\'\nimport PostDetailConst from \'\.\/PostDetailConst\'\nimport CommentModal from \&quot;\.\.\/Comments\/CommentModal\&quot;\;\nimport \{editComment\, getAllPostComments\, voteComment\} from \'\.\.\/\.\.\/actions\/comments\'\nimport CommentListConst from \&quot;\.\.\/Comments\/CommentListConst\&quot;\;\n\nimport sortBy from \'sort\-by\'\nimport FilterPosts from \&quot;\.\.\/Layout\/FilterPosts\&quot;\;\nimport PostModal from \&quot;\.\/PostModal\&quot;\;\n\n\nclass ListPosts extends Component \{\n\n  constructor\(props\) \{\n    super\(props\)\;\n    this\.state \= \{\n      filter\: \'\-voteScore\'\,\n      activeCategory\: \'\'\,\n      showCommentModal\: false\,\n      showEditModal\: false\,\n      editablePost\: null\,\n      editableComment\: null\n    \}\n  \}\n\n  redirect\(\) \{\n    this\.props\.history\.push\(\'\/\'\)\;\n  \}\n\n  componentWillMount\(\) \{\n    this\.props\.getPostById\(this\.props\.match\.params\.id\)\;\n    this\.props\.getComments\(this\.props\.match\.params\.id\)\;\n  \}\n\n  componentDidUpdate\(\)\{\n    if \(this\.props\.post\.id \=\=\= null \|\| this\.props\.post\.deleted \|\| this\.props\.post \=\=\= undefined\) \{\n      this\.redirect\(\)\n    \}\n  \}\n\n\n  openCommentModal\(\) \{\n    this\.setState\(\{showCommentModal\: true\}\)\;\n  \}\n\n  closeCommentModal\(\) \{\n    this\.setState\(\{showCommentModal\: false\}\)\;\n  \}\n\n  closeEditModal\(\) \{\n    this\.setState\(\{showEditModal\: false\}\)\;\n  \}\n\n  openEditModal\(\) \{\n    this\.setState\(\{showEditModal\: true\}\)\;\n  \}\n\n  changeFilter \= \(newFilter\) \=\&gt; \{\n    let filter \= this\.state\.filter\n    let signal \= filter\.slice\(0\)\n    let is_negative \= \(signal \=\=\= \'\-\'\)\n    if \(is_negative\)\n      filter \= filter\.slice\(1\,\)\n    if \(\(newFilter \=\=\= filter\) \&amp;\&amp; \!is_negative\) \{\n      this\.setState\(\{\n        filter\: \&quot;\-\&quot; \+ newFilter\n      \}\)\n    \}\n    else \{\n      this\.setState\(\{\n        filter\: newFilter\n      \}\)\n    \}\n  \}\n\n  editPost \= \(post\) \=\&gt; \{\n    this\.setState\(\{\n      showEditModal\: true\,\n      editablePost\: post\n    \}\)\;\n  \}\n\n  deletePost \= \(postId\) \=\&gt; \{\n    this\.props\.editPost\(\{\n      id\: postId\,\n      deleted\: true\n    \}\, this\.props\.match\.params\.category\)\n    this\.redirect\(\)\n  \}\n\n  deleteComment \= \(comentId\) \=\&gt; \{\n    this\.props\.editComment\(\{\n      id\: comentId\,\n      deleted\: true\n    \}\, this\.props\.match\.params\.category\)\n  \}\n\n  editComment \= \(comment\) \=\&gt; \{\n    this\.setState\(\{\n      showCommentModal\: true\,\n      editableComment\: comment\n    \}\)\;\n  \}\n\n  render\(\) \{\n    const comments \= this\.props\.comments\.sort\(sortBy\(this\.state\.filter\)\)\;\n    const filterOptions \= \[\'voteScore\'\, \'timestamp\'\, \'id\'\, \'body\'\, \'author\'\]\n    return \(\n        \&lt;div\&gt;\n          \&lt;Header\/\&gt;\n          \&lt;Grid\&gt;\n            \&lt;Row\&gt;\n              \&lt;Col md\=\{9\}\&gt;\n                \&lt;PostDetailConst post\=\{this\.props\.post\}\n                                 editPost\=\{this\.editPost\}\n                                 deletePost\=\{this\.deletePost\}\n                                 showPostModal\=\{this\.openEditModal\}\n                                 votePost\=\{this\.props\.votePost\}\/\&gt;\n              \&lt;\/Col\&gt;\n            \&lt;\/Row\&gt;\n            \&lt;Row\&gt;\n              \&lt;Col md\=\{2\}\&gt;\n                \&lt;Button bsStyle\=\&quot;info\&quot; onClick\=\{\(\) \=\&gt; this\.openCommentModal\(\)\}\&gt;New comment\&lt;\/Button\&gt;\n              \&lt;\/Col\&gt;\n              \&lt;Col md\=\{7\}\&gt;\n                \&lt;FilterPosts title\=\&quot;Filter\&quot; options\=\{filterOptions\} changeFilter\=\{this\.changeFilter\}\/\&gt;\n              \&lt;\/Col\&gt;\n            \&lt;\/Row\&gt;\n            \&lt;br\/\&gt;\n            \&lt;Col md\=\{9\}\&gt;\n              \&lt;CommentListConst comments\=\{comments\}\n                                editComment\=\{this\.editComment\} deleteComment\=\{this\.deleteComment\}\n                                vote\=\{\(commentId\, voteType\) \=\&gt; this\.props\.voteComment\(commentId\, voteType\)\}\/\&gt;\n            \&lt;\/Col\&gt;\n          \&lt;\/Grid\&gt;\n          \&lt;CommentModal showCommentModal\=\{this\.state\.showCommentModal\}\n                        closeCommentModal\=\{\(\) \=\&gt; this\.closeCommentModal\(\)\}\n                        comment\=\{this\.state\.editableComment\}\n                        post\=\{this\.props\.post\}\/\&gt;\n          \&lt;PostModal showPostModal\=\{this\.state\.showEditModal\}\n                     post\=\{this\.state\.editablePost\}\n                     closePostModal\=\{\(\) \=\&gt; this\.closeEditModal\(\)\}\/\&gt;\n        \&lt;\/div\&gt;\n\n\n    \)\n  \}\n\}\n\nfunction mapStateToProps\(state\) \{\n  return \{\n    post\: state\.PostStore\.uniquePost\,\n    comments\: state\.CommentStore\.comments\n  \}\n\}\n\nfunction mapDispatchToProps\(dispatch\) \{\n  return \{\n    getPostById\: bindActionCreators\(getPostById\, dispatch\)\,\n    editPost\: bindActionCreators\(editPost\, dispatch\)\,\n    votePost\: bindActionCreators\(votePost\, dispatch\)\,\n    getComments\: bindActionCreators\(getAllPostComments\, dispatch\)\,\n    voteComment\: bindActionCreators\(voteComment\, dispatch\)\,\n    editComment\: bindActionCreators\(editComment\, dispatch\)\,\n  \}\n\}\n\nexport default connect\(mapStateToProps\, mapDispatchToProps\)\(withRouter\(ListPosts\)\)\n</find>
       <find>\n\nfunction FieldGroup\(\{id\, label\, help\, \.\.\.props\}\) \{\n  return \(\n      \&lt;FormGroup controlId\=\{id\}\&gt;\n        \&lt;ControlLabel\&gt;\{label\}\&lt;\/ControlLabel\&gt;\n        \&lt;FormControl \{\.\.\.props\} \/\&gt;\n        \{help \&amp;\&amp; \&lt;HelpBlock\&gt;\{help\}\&lt;\/HelpBlock\&gt;\}\n      \&lt;\/FormGroup\&gt;\n  \)\;\n\}\n\nclass CommentModal extends Component \{\n\n  constructor\(props\) \{\n    super\(props\)\;\n    this\.state \= \{\n      newComment\: true\,\n      body\: \'\'\,\n      author\: \'\'\,\n    \}\n    this\.handleAuthorChange \= this\.handleAuthorChange\.bind\(this\)\;\n    this\.handleCommentChange \= this\.handleCommentChange\.bind\(this\)\;\n  \}\n\n  static propTypes \= \{\n    showCommentModal\: PropTypes\.bool\.isRequired\,\n    closeCommentModal\: PropTypes\.func\.isRequired\,\n    post\: PropTypes\.object\.isRequired\,\n    comment\: PropTypes\.object\n  \}\;\n\n  handleAuthorChange \= \(event\) \=\&gt; \{\n    this\.setState\(\{author\: event\.target\.value\}\)\;\n\n  \}\n\n  handleCommentChange \= \(event\) \=\&gt; \{\n    this\.setState\(\{body\: event\.target\.value\}\)\;\n  \}\n\n  onEntered \= \(\)  \=\&gt; \{\n    if \(this\.props\.comment \!\=\= null \&amp;\&amp; this\.props\.comment \!\=\= undefined\) \{\n      this\.setState\(\{\n        newComment\: false\,\n        author\: this\.props\.comment\.author\,\n        body\: this\.props\.comment\.body\,\n      \}\)\n    \}\n\n  \}\n\n  postComment \= \(event\) \=\&gt; \{\n    event\.preventDefault\(\)\;\n    if \(this\.state\.newComment\) \{\n      this\.props\.createNewComment\(\{\n        id\: v4\(\)\,\n        parentId\: this\.props\.post\.id\,\n        timestamp\: Date\.now\(\)\,\n        body\: this\.state\.body\,\n        author\: this\.state\.author\,\n        voteScore\: this\.props\.post\.voteScore\,\n        deleted\: false\,\n        parentDeleted\: this\.props\.post\.deleted\n      \}\)\n    \}\n    else\{\n      this\.props\.editComment\(\{\n        id\: this\.props\.comment\.id\,\n        parentId\: this\.props\.comment\.parentId\,\n        timestamp\: Date\.now\(\)\,\n        body\: this\.state\.body\,\n        author\: this\.state\.author\,\n        voteScore\: this\.props\.comment\.voteScore\,\n        deleted\: this\.props\.comment\.deleted\,\n        parentDeleted\: this\.props\.comment\.parentDeleted\n      \}\)\n    \}\n    this\.props\.closeCommentModal\(\)\n    this\.setState\(\{\n      body\: \'\'\,\n      author\: \'\'\,\n    \}\)\n  \}\n\n  render\(\) \{\n    return \(\n        \&lt;Modal show\=\{this\.props\.showCommentModal\} onHide\=\{\(\) \=\&gt; this\.props\.closeCommentModal\(\)\}\n               onEntered\=\{this\.onEntered\}\&gt;\n          \&lt;Modal\.Header closeButton\&gt;\n            \&lt;Modal\.Title\&gt;Modal heading\&lt;\/Modal\.Title\&gt;\n          \&lt;\/Modal\.Header\&gt;\n          \&lt;Modal\.Body\&gt;\n            \&lt;form\&gt;\n              \&lt;FieldGroup\n                  id\=\&quot;formAuthor\&quot;\n                  type\=\&quot;text\&quot;\n                  label\=\&quot;Author\&quot;\n                  placeholder\=\&quot;Insert author name\&quot;\n                  value\=\{this\.state\.author\}\n                  onChange\=\{this\.handleAuthorChange\}\n              \/\&gt;\n              \&lt;FieldGroup\n                  id\=\&quot;formComment\&quot;\n                  type\=\&quot;text\&quot;\n                  label\=\&quot;Comment\&quot;\n                  placeholder\=\&quot;Insert comment\&quot;\n                  value\=\{this\.state\.body\}\n                  onChange\=\{this\.handleCommentChange\}\n              \/\&gt;\n\n              \&lt;Button type\=\&quot;submit\&quot; onClick\=\{this\.postComment\}\&gt;\n                Submit\n              \&lt;\/Button\&gt;\n            \&lt;\/form\&gt;\n          \&lt;\/Modal\.Body\&gt;\n        \&lt;\/Modal\&gt;\n    \)\n  \}\n\}\n\nfunction mapStateToProps\(\) \{\n  return \{\}\n\}\n\nfunction mapDispatchToProps\(dispatch\) \{\n  return \{\n    createNewComment\: bindActionCreators\(createNewComment\, dispatch\)\,\n    editComment\: bindActionCreators\(editComment\, dispatch\)\,\n  \}\n\}\n\nexport default connect\(mapStateToProps\, mapDispatchToProps\)\(CommentModal\)\n</find>
+      <find>editablePost</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
@@ -123,12 +137,9 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/reducers/reducer.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Posts/PostModal.jsx" />
         <option value="$PROJECT_DIR$/src/components/Posts/PostListConst.jsx" />
         <option value="$PROJECT_DIR$/src/components/Posts/PostDetailConst.jsx" />
         <option value="$PROJECT_DIR$/src/components/Posts/PanelHeaderPost.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Posts/ListPosts.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Posts/DetailPost.jsx" />
         <option value="$PROJECT_DIR$/src/components/Layout/FilterPosts.jsx" />
         <option value="$PROJECT_DIR$/src/components/Comments/CommentModal.jsx" />
         <option value="$PROJECT_DIR$/src/components/Comments/CommentListConst.jsx" />
@@ -138,6 +149,9 @@
         <option value="$PROJECT_DIR$/src/actions/categories.jsx" />
         <option value="$PROJECT_DIR$/src/components/Layout/Header.jsx" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/components/Posts/ListPosts.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Posts/DetailPost.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Posts/PostModal.jsx" />
       </list>
     </option>
   </component>
@@ -316,25 +330,25 @@
       <workItem from="1510577906603" duration="3964000" />
       <workItem from="1510659704993" duration="581000" />
       <workItem from="1511185501329" duration="22246000" />
-      <workItem from="1511265559272" duration="609000" />
+      <workItem from="1511265559272" duration="2947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53954000" />
+    <option name="totallyTimeSpent" value="56292000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
+    <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18763961" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18713759" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27371696" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1842932" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -391,7 +405,7 @@
         <state relative-caret-position="450">
           <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -410,6 +424,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -469,7 +486,7 @@
         <state relative-caret-position="18">
           <caret line="1" column="52" lean-forward="true" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -478,13 +495,6 @@
     <entry file="file://$PROJECT_DIR$/src/styles/app.scss" />
     <entry file="file://$PROJECT_DIR$/src/actions/index.js" />
     <entry file="file://$PROJECT_DIR$/src/components/Layout/MenuItem.jsx" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-router-dom/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="227" lean-forward="false" selection-start-line="3" selection-start-column="227" selection-end-line="3" selection-end-column="227" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/localStorage.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-bootstrap/es/Col.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -555,16 +565,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -572,6 +573,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -582,16 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
@@ -599,40 +591,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Posts/PostModal.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="4" lean-forward="true" selection-start-line="6" selection-start-column="55" selection-end-line="173" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Posts/PostListConst.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Posts/PostDetailConst.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="14" lean-forward="true" selection-start-line="4" selection-start-column="48" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/categories.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -640,14 +603,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="60" column="43" lean-forward="false" selection-start-line="2" selection-start-column="116" selection-end-line="82" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Posts/DetailPost.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="176" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -671,7 +629,7 @@
         <state relative-caret-position="486">
           <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -681,7 +639,7 @@
         <state relative-caret-position="72">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -691,38 +649,19 @@
         <state relative-caret-position="288">
           <caret line="16" column="8" lean-forward="false" selection-start-line="1" selection-start-column="44" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Posts/ListPosts.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Posts/PanelHeaderPost.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Layout/Header.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="198">
+            <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -736,14 +675,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="270">
-            <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/components/Layout/Header.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Posts/PanelHeaderPost.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Posts/PostListConst.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Posts/PostDetailConst.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-router-dom/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="81" lean-forward="false" selection-start-line="3" selection-start-column="81" selection-end-line="3" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="16" column="61" lean-forward="false" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Posts/ListPosts.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="81" column="12" lean-forward="true" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Posts/DetailPost.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="147" column="16" lean-forward="false" selection-start-line="147" selection-start-column="16" selection-end-line="147" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Posts/PostModal.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="148" column="32" lean-forward="false" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

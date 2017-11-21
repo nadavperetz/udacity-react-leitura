@@ -73,6 +73,8 @@ class PostModal extends Component {
   }
 
   handleCategoryChange = (event) => {
+    console.log("event")
+    console.log(event.target.value)
     this.setState({category: event.target.value});
   }
 
@@ -107,6 +109,8 @@ class PostModal extends Component {
   }
 
   render() {
+    console.log(this.state)
+    console.log(this.state.category)
     return (
         <Modal show={this.props.showPostModal} onHide={() => this.props.closePostModal()}
                onEntered={() => this.onEntered()}>
@@ -130,22 +134,25 @@ class PostModal extends Component {
                   placeholder="Insert title"
                   value={this.state.title}
                   onChange={this.handleTitleChange}
-              /> <FieldGroup
+              />
+              <FieldGroup
                 id="formComment"
                 type="text"
                 label="body"
                 placeholder="Insert body"
                 value={this.state.body}
-                onChange={this.handleBodyChange}
-            />
-              <FieldGroup
-                  id="formComment"
-                  type="text"
-                  label="category"
-                  placeholder="Insert category"
-                  value={this.state.category}
-                  onChange={this.handleCategoryChange}
-              />
+                onChange={this.handleBodyChange}/>
+              <FormGroup controlId="formComment">
+                <ControlLabel>Category</ControlLabel>
+                <FormControl componentClass="select" placeholder="select"
+                             value={this.state.category}
+                             onChange={this.handleCategoryChange}>
+                  <option value="..." key={0} disabled={true} >...</option>
+                  {this.props.categories.map((category) => <option key={category.name}
+                                                                   value={category.name}>{category.name}</option>)}
+
+                </FormControl>
+              </FormGroup>
 
               <Button type="submit" onClick={this.postComment}>
                 Submit
