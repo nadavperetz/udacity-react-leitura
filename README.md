@@ -10,6 +10,16 @@ This project is a web app for the assessment project for Udacity's React course
     $ npm install
     $ npm run
     
+### Backend server
+
+The projects connect to a local server: [https://github.com/udacity/reactnd-project-readable-starter]
+    
+
+    $ git clone
+    $ cd reactnd-project-readable-starter
+    $ cd api-server
+    $ node server.js
+    
     
 ### Contributing & Issues
 
