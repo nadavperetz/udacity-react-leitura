@@ -14,11 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PostModal.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PostModal.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Posts/PostModal.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="148" column="32" lean-forward="false" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
+            <state relative-caret-position="196">
+              <caret line="109" column="4" lean-forward="false" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reducer.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/reducers/reducer.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="98" column="8" lean-forward="false" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -80,8 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>filter</find>
-      <find>initialPostState</find>
       <find>prop</find>
       <find>props</find>
       <find>closePostModal</find>
@@ -110,11 +120,16 @@
       <find>import React\, \{Component\} from \'react\'\nimport \{connect\} from \'react\-redux\'\nimport \{bindActionCreators\} from \'redux\'\nimport \{withRouter\} from \&quot;react\-router\-dom\&quot;\nimport \{Button\, Col\, Grid\, Row\} from \'react\-bootstrap\'\n\nimport \{editPost\, getPostById\, votePost\} from \'\.\.\/\.\.\/actions\/posts\'\n\nimport Header from \'\.\.\/Layout\/Header\'\nimport PostDetailConst from \'\.\/PostDetailConst\'\nimport CommentModal from \&quot;\.\.\/Comments\/CommentModal\&quot;\;\nimport \{editComment\, getAllPostComments\, voteComment\} from \'\.\.\/\.\.\/actions\/comments\'\nimport CommentListConst from \&quot;\.\.\/Comments\/CommentListConst\&quot;\;\n\nimport sortBy from \'sort\-by\'\nimport FilterPosts from \&quot;\.\.\/Layout\/FilterPosts\&quot;\;\nimport PostModal from \&quot;\.\/PostModal\&quot;\;\n\n\nclass ListPosts extends Component \{\n\n  constructor\(props\) \{\n    super\(props\)\;\n    this\.state \= \{\n      filter\: \'\-voteScore\'\,\n      activeCategory\: \'\'\,\n      showCommentModal\: false\,\n      showEditModal\: false\,\n      editablePost\: null\,\n      editableComment\: null\n    \}\n  \}\n\n  redirect\(\) \{\n    this\.props\.history\.push\(\'\/\'\)\;\n  \}\n\n  componentWillMount\(\) \{\n    this\.props\.getPostById\(this\.props\.match\.params\.id\)\;\n    this\.props\.getComments\(this\.props\.match\.params\.id\)\;\n  \}\n\n  componentDidUpdate\(\)\{\n    if \(this\.props\.post\.id \=\=\= null \|\| this\.props\.post\.deleted \|\| this\.props\.post \=\=\= undefined\) \{\n      this\.redirect\(\)\n    \}\n  \}\n\n\n  openCommentModal\(\) \{\n    this\.setState\(\{showCommentModal\: true\}\)\;\n  \}\n\n  closeCommentModal\(\) \{\n    this\.setState\(\{showCommentModal\: false\}\)\;\n  \}\n\n  closeEditModal\(\) \{\n    this\.setState\(\{showEditModal\: false\}\)\;\n  \}\n\n  openEditModal\(\) \{\n    this\.setState\(\{showEditModal\: true\}\)\;\n  \}\n\n  changeFilter \= \(newFilter\) \=\&gt; \{\n    let filter \= this\.state\.filter\n    let signal \= filter\.slice\(0\)\n    let is_negative \= \(signal \=\=\= \'\-\'\)\n    if \(is_negative\)\n      filter \= filter\.slice\(1\,\)\n    if \(\(newFilter \=\=\= filter\) \&amp;\&amp; \!is_negative\) \{\n      this\.setState\(\{\n        filter\: \&quot;\-\&quot; \+ newFilter\n      \}\)\n    \}\n    else \{\n      this\.setState\(\{\n        filter\: newFilter\n      \}\)\n    \}\n  \}\n\n  editPost \= \(post\) \=\&gt; \{\n    this\.setState\(\{\n      showEditModal\: true\,\n      editablePost\: post\n    \}\)\;\n  \}\n\n  deletePost \= \(postId\) \=\&gt; \{\n    this\.props\.editPost\(\{\n      id\: postId\,\n      deleted\: true\n    \}\, this\.props\.match\.params\.category\)\n    this\.redirect\(\)\n  \}\n\n  deleteComment \= \(comentId\) \=\&gt; \{\n    this\.props\.editComment\(\{\n      id\: comentId\,\n      deleted\: true\n    \}\, this\.props\.match\.params\.category\)\n  \}\n\n  editComment \= \(comment\) \=\&gt; \{\n    this\.setState\(\{\n      showCommentModal\: true\,\n      editableComment\: comment\n    \}\)\;\n  \}\n\n  render\(\) \{\n    const comments \= this\.props\.comments\.sort\(sortBy\(this\.state\.filter\)\)\;\n    const filterOptions \= \[\'voteScore\'\, \'timestamp\'\, \'id\'\, \'body\'\, \'author\'\]\n    return \(\n        \&lt;div\&gt;\n          \&lt;Header\/\&gt;\n          \&lt;Grid\&gt;\n            \&lt;Row\&gt;\n              \&lt;Col md\=\{9\}\&gt;\n                \&lt;PostDetailConst post\=\{this\.props\.post\}\n                                 editPost\=\{this\.editPost\}\n                                 deletePost\=\{this\.deletePost\}\n                                 showPostModal\=\{this\.openEditModal\}\n                                 votePost\=\{this\.props\.votePost\}\/\&gt;\n              \&lt;\/Col\&gt;\n            \&lt;\/Row\&gt;\n            \&lt;Row\&gt;\n              \&lt;Col md\=\{2\}\&gt;\n                \&lt;Button bsStyle\=\&quot;info\&quot; onClick\=\{\(\) \=\&gt; this\.openCommentModal\(\)\}\&gt;New comment\&lt;\/Button\&gt;\n              \&lt;\/Col\&gt;\n              \&lt;Col md\=\{7\}\&gt;\n                \&lt;FilterPosts title\=\&quot;Filter\&quot; options\=\{filterOptions\} changeFilter\=\{this\.changeFilter\}\/\&gt;\n              \&lt;\/Col\&gt;\n            \&lt;\/Row\&gt;\n            \&lt;br\/\&gt;\n            \&lt;Col md\=\{9\}\&gt;\n              \&lt;CommentListConst comments\=\{comments\}\n                                editComment\=\{this\.editComment\} deleteComment\=\{this\.deleteComment\}\n                                vote\=\{\(commentId\, voteType\) \=\&gt; this\.props\.voteComment\(commentId\, voteType\)\}\/\&gt;\n            \&lt;\/Col\&gt;\n          \&lt;\/Grid\&gt;\n          \&lt;CommentModal showCommentModal\=\{this\.state\.showCommentModal\}\n                        closeCommentModal\=\{\(\) \=\&gt; this\.closeCommentModal\(\)\}\n                        comment\=\{this\.state\.editableComment\}\n                        post\=\{this\.props\.post\}\/\&gt;\n          \&lt;PostModal showPostModal\=\{this\.state\.showEditModal\}\n                     post\=\{this\.state\.editablePost\}\n                     closePostModal\=\{\(\) \=\&gt; this\.closeEditModal\(\)\}\/\&gt;\n        \&lt;\/div\&gt;\n\n\n    \)\n  \}\n\}\n\nfunction mapStateToProps\(state\) \{\n  return \{\n    post\: state\.PostStore\.uniquePost\,\n    comments\: state\.CommentStore\.comments\n  \}\n\}\n\nfunction mapDispatchToProps\(dispatch\) \{\n  return \{\n    getPostById\: bindActionCreators\(getPostById\, dispatch\)\,\n    editPost\: bindActionCreators\(editPost\, dispatch\)\,\n    votePost\: bindActionCreators\(votePost\, dispatch\)\,\n    getComments\: bindActionCreators\(getAllPostComments\, dispatch\)\,\n    voteComment\: bindActionCreators\(voteComment\, dispatch\)\,\n    editComment\: bindActionCreators\(editComment\, dispatch\)\,\n  \}\n\}\n\nexport default connect\(mapStateToProps\, mapDispatchToProps\)\(withRouter\(ListPosts\)\)\n</find>
       <find>\n\nfunction FieldGroup\(\{id\, label\, help\, \.\.\.props\}\) \{\n  return \(\n      \&lt;FormGroup controlId\=\{id\}\&gt;\n        \&lt;ControlLabel\&gt;\{label\}\&lt;\/ControlLabel\&gt;\n        \&lt;FormControl \{\.\.\.props\} \/\&gt;\n        \{help \&amp;\&amp; \&lt;HelpBlock\&gt;\{help\}\&lt;\/HelpBlock\&gt;\}\n      \&lt;\/FormGroup\&gt;\n  \)\;\n\}\n\nclass CommentModal extends Component \{\n\n  constructor\(props\) \{\n    super\(props\)\;\n    this\.state \= \{\n      newComment\: true\,\n      body\: \'\'\,\n      author\: \'\'\,\n    \}\n    this\.handleAuthorChange \= this\.handleAuthorChange\.bind\(this\)\;\n    this\.handleCommentChange \= this\.handleCommentChange\.bind\(this\)\;\n  \}\n\n  static propTypes \= \{\n    showCommentModal\: PropTypes\.bool\.isRequired\,\n    closeCommentModal\: PropTypes\.func\.isRequired\,\n    post\: PropTypes\.object\.isRequired\,\n    comment\: PropTypes\.object\n  \}\;\n\n  handleAuthorChange \= \(event\) \=\&gt; \{\n    this\.setState\(\{author\: event\.target\.value\}\)\;\n\n  \}\n\n  handleCommentChange \= \(event\) \=\&gt; \{\n    this\.setState\(\{body\: event\.target\.value\}\)\;\n  \}\n\n  onEntered \= \(\)  \=\&gt; \{\n    if \(this\.props\.comment \!\=\= null \&amp;\&amp; this\.props\.comment \!\=\= undefined\) \{\n      this\.setState\(\{\n        newComment\: false\,\n        author\: this\.props\.comment\.author\,\n        body\: this\.props\.comment\.body\,\n      \}\)\n    \}\n\n  \}\n\n  postComment \= \(event\) \=\&gt; \{\n    event\.preventDefault\(\)\;\n    if \(this\.state\.newComment\) \{\n      this\.props\.createNewComment\(\{\n        id\: v4\(\)\,\n        parentId\: this\.props\.post\.id\,\n        timestamp\: Date\.now\(\)\,\n        body\: this\.state\.body\,\n        author\: this\.state\.author\,\n        voteScore\: this\.props\.post\.voteScore\,\n        deleted\: false\,\n        parentDeleted\: this\.props\.post\.deleted\n      \}\)\n    \}\n    else\{\n      this\.props\.editComment\(\{\n        id\: this\.props\.comment\.id\,\n        parentId\: this\.props\.comment\.parentId\,\n        timestamp\: Date\.now\(\)\,\n        body\: this\.state\.body\,\n        author\: this\.state\.author\,\n        voteScore\: this\.props\.comment\.voteScore\,\n        deleted\: this\.props\.comment\.deleted\,\n        parentDeleted\: this\.props\.comment\.parentDeleted\n      \}\)\n    \}\n    this\.props\.closeCommentModal\(\)\n    this\.setState\(\{\n      body\: \'\'\,\n      author\: \'\'\,\n    \}\)\n  \}\n\n  render\(\) \{\n    return \(\n        \&lt;Modal show\=\{this\.props\.showCommentModal\} onHide\=\{\(\) \=\&gt; this\.props\.closeCommentModal\(\)\}\n               onEntered\=\{this\.onEntered\}\&gt;\n          \&lt;Modal\.Header closeButton\&gt;\n            \&lt;Modal\.Title\&gt;Modal heading\&lt;\/Modal\.Title\&gt;\n          \&lt;\/Modal\.Header\&gt;\n          \&lt;Modal\.Body\&gt;\n            \&lt;form\&gt;\n              \&lt;FieldGroup\n                  id\=\&quot;formAuthor\&quot;\n                  type\=\&quot;text\&quot;\n                  label\=\&quot;Author\&quot;\n                  placeholder\=\&quot;Insert author name\&quot;\n                  value\=\{this\.state\.author\}\n                  onChange\=\{this\.handleAuthorChange\}\n              \/\&gt;\n              \&lt;FieldGroup\n                  id\=\&quot;formComment\&quot;\n                  type\=\&quot;text\&quot;\n                  label\=\&quot;Comment\&quot;\n                  placeholder\=\&quot;Insert comment\&quot;\n                  value\=\{this\.state\.body\}\n                  onChange\=\{this\.handleCommentChange\}\n              \/\&gt;\n\n              \&lt;Button type\=\&quot;submit\&quot; onClick\=\{this\.postComment\}\&gt;\n                Submit\n              \&lt;\/Button\&gt;\n            \&lt;\/form\&gt;\n          \&lt;\/Modal\.Body\&gt;\n        \&lt;\/Modal\&gt;\n    \)\n  \}\n\}\n\nfunction mapStateToProps\(\) \{\n  return \{\}\n\}\n\nfunction mapDispatchToProps\(dispatch\) \{\n  return \{\n    createNewComment\: bindActionCreators\(createNewComment\, dispatch\)\,\n    editComment\: bindActionCreators\(editComment\, dispatch\)\,\n  \}\n\}\n\nexport default connect\(mapStateToProps\, mapDispatchToProps\)\(CommentModal\)\n</find>
       <find>editablePost</find>
+      <find>console</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
       <replace>props.post</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -133,7 +148,6 @@
         <option value="$PROJECT_DIR$/src/utils/api.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/reducers/reducer.jsx" />
         <option value="$PROJECT_DIR$/src/components/Posts/PostListConst.jsx" />
         <option value="$PROJECT_DIR$/src/components/Posts/PostDetailConst.jsx" />
         <option value="$PROJECT_DIR$/src/components/Posts/PanelHeaderPost.jsx" />
@@ -149,6 +163,7 @@
         <option value="$PROJECT_DIR$/src/components/Posts/ListPosts.jsx" />
         <option value="$PROJECT_DIR$/src/components/Posts/DetailPost.jsx" />
         <option value="$PROJECT_DIR$/src/components/Posts/PostModal.jsx" />
+        <option value="$PROJECT_DIR$/src/reducers/reducer.jsx" />
       </list>
     </option>
   </component>
@@ -327,12 +342,12 @@
       <workItem from="1510577906603" duration="3964000" />
       <workItem from="1510659704993" duration="581000" />
       <workItem from="1511185501329" duration="22246000" />
-      <workItem from="1511265559272" duration="3032000" />
+      <workItem from="1511265559272" duration="3088000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56377000" />
+    <option name="totallyTimeSpent" value="56433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
@@ -340,6 +355,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18713759" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -352,7 +368,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -392,6 +407,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -437,6 +453,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
           <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -584,6 +601,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
           <caret line="38" column="8" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -609,6 +627,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="40" column="38" lean-forward="false" selection-start-line="0" selection-start-column="109" selection-end-line="64" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -658,16 +677,6 @@
             <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/reducer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="75" column="12" lean-forward="true" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -747,8 +756,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Posts/PostModal.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="148" column="32" lean-forward="false" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
+        <state relative-caret-position="196">
+          <caret line="109" column="4" lean-forward="false" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/reducer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="98" column="8" lean-forward="false" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
