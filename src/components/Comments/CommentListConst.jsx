@@ -18,7 +18,7 @@ const CommentListConst = (props) => (
                       </Col>
                       <Col md={3}>
                         <ButtonToolbar className="pull-right">
-                          <Button className="pull-right" onClick={() => props.deleteComment(comment.id)}>
+                          <Button className="pull-right" onClick={() => props.deleteComment(comment)}>
                             <FaClose/>
                           </Button>
                           <Button className="pull-right" onClick={() => props.editComment(comment)}>
