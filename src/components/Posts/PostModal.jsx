@@ -32,7 +32,7 @@ class PostModal extends Component {
       title: '',
       body: '',
       author: '',
-      category: ''
+      category: 'react'
     }
     this.handleAuthorChange = this.handleAuthorChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
@@ -102,7 +102,7 @@ class PostModal extends Component {
       title: '',
       body: '',
       author: '',
-      category: ''
+      category: 'react'
     })
   }
 
